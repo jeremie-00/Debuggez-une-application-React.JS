@@ -20,11 +20,12 @@ export const DataProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
   const [last, setLast] = useState(null);
-  
+
   const getData = useCallback(async () => {
     try {
-      setData(await api.loadData());
-      const lastData = data?.events.sort((evtA, evtB) =>
+      const loadData = await api.loadData()
+      setData(loadData);
+      const lastData = loadData?.events.sort((evtA, evtB) =>
         new Date(evtA.date) < new Date(evtB.date)
       )[0];
       setLast(lastData)
@@ -36,7 +37,7 @@ export const DataProvider = ({ children }) => {
     if (!data) {
       getData()
     }
-  }, []);
+  }, [data]);
 
   return (
     <DataContext.Provider
