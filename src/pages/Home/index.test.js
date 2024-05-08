@@ -47,5 +47,7 @@ describe("When a page is created", () => {
   })
   it("an event card, with the last event, is displayed", () => {
     // to implement
+    render(<Page />); 
+    expect(screen.getByTestId("lastEvent-test-id")).toBeInTheDocument(); 
   })
 });

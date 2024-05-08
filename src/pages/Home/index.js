@@ -13,12 +13,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const { data } = useData();
-
-  const last = data?.events.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date)
-  )[0];
-
+  const { last } = useData();
   return <>
     <header>
       <Menu />
@@ -119,7 +114,7 @@ const Page = () => {
       </div>
     </main>
     <footer className="row"  data-testid='footer-test-id'>
-      <div className="col presta">
+      <div className="col presta" data-testid='lastEvent-test-id'>
         <h3>Notre derniére prestation</h3>
         {last && <EventCard
           imageSrc={last.cover}
