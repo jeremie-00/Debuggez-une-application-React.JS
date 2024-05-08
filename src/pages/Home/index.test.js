@@ -34,8 +34,11 @@ describe("When a page is created", () => {
     render(<Page />);   
     expect(screen.getByTestId("eventList-test-id")).toBeInTheDocument();
   })
-  it("a list a people is displayed", () => {
+  it("a list a people is displayed", async () => {
     // to implement
+    render(<Page />);   
+    const peopleCards = screen.getAllByTestId("peopleCard-test-id");
+    expect(peopleCards.length).toBeGreaterThan(0);
   })
   it("a footer is displayed", () => {
     // to implement
