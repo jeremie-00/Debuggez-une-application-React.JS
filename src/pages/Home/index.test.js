@@ -42,6 +42,8 @@ describe("When a page is created", () => {
   })
   it("a footer is displayed", () => {
     // to implement
+    render(<Page />); 
+    expect(screen.getByTestId("footer-test-id")).toBeInTheDocument(); 
   })
   it("an event card, with the last event, is displayed", () => {
     // to implement
